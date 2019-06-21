@@ -1,0 +1,28 @@
+airflow:
+  fernetKey: "j0PNE8131Vx-ix7BsNDwskFUlnLa00mWU17BRujVcdY="
+  image:
+    repository: puckel/docker-airflow
+    tag: 1.10.3
+
+workers:
+  enabled: true
+  replicas: 2
+  celery:
+    instances: 1
+
+ingress:
+  enabled: true
+  web:
+    host: "airflow.local"
+
+  flower:
+    host: "flower.local"
+
+dags:
+  doNotPickle: false
+  git:
+    url: https://github.com/burakince/airflow-dag-examples.git
+    ref: master
+
+  initContainer:
+    enabled: true
