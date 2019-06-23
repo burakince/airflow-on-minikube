@@ -3,6 +3,14 @@ airflow:
   image:
     repository: puckel/docker-airflow
     tag: 1.10.3
+  connections:
+  # - id: my_aws
+  #   type: aws
+  #   extra: '{"aws_access_key_id": "**********", "aws_secret_access_key": "***", "region_name":"eu-central-1"}'
+  - id: slack
+    type: http
+    host: 'https://hooks.slack.com/services'
+    password: '/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX'
 
 workers:
   enabled: true
